@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_properties",
+  "info": {
+    "displayName": "Property"
+  },
+  "options": {},
+  "attributes": {
+    "key": {
+      "type": "string",
+      "unique": true
+    },
+    "value": {
+      "type": "richtext"
+    }
+  }
+}

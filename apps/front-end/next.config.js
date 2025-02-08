@@ -14,6 +14,10 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+      {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
@@ -28,6 +32,10 @@ const nextConfig = {
       {
         source: '/san-pham',
         destination: '/products',
+      },
+      {
+        source: '/san-pham/:slug',
+        destination: '/products/:slug',
       },
       {
         source: '/chia-se',

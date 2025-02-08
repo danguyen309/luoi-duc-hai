@@ -1,37 +1,44 @@
 const features = [
-  { name: '20+ năm kinh nghiệm' },
+  {
+    name: '20+ năm kinh nghiệm',
+    description: 'Hơn 20 năm phục vụ khách hàng.',
+  },
   {
     name: 'Giao hàng toàn quốc',
-    description:
-      'Solid walnut base with rare earth magnets and powder coated steel card cover',
+    description: 'Vận chuyển nhanh chóng trên toàn quốc.',
   },
-  { name: 'Chất lượng hàng đầu', description: '6.25" x 3.55" x 1.15"' },
-  { name: 'Hỗ trợ 24/7' },
+  {
+    name: 'Chất lượng hàng đầu',
+    description: 'Đảm bảo chất lượng tốt nhất cho sản phẩm.',
+  },
+  {
+    name: 'Hỗ trợ 24/7',
+    description: 'Luôn sẵn sàng hỗ trợ khách hàng mọi lúc.',
+  },
   {
     name: 'Tiết kiệm tối đa chi phí',
-    description: 'Wood card tray and 3 refill packs',
+    description: 'Giải pháp giúp bạn tiết kiệm chi phí hiệu quả.',
   },
   {
     name: 'Công nghệ hiện đại',
-    description:
-      'Made from natural materials. Grain and color vary with each item.',
+    description: 'Ứng dụng công nghệ tiên tiến trong dịch vụ.',
   },
 ];
 
 const WhyChooseUs = () => {
   return (
     <div className="bg-white">
-      <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-4  lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+      <div className="grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-4  lg:max-w-7xl lg:grid-cols-2 lg:px-8">
         <div>
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h6 className="text-gray-900 sm:text-4xl">
             Tại sao chọn chúng tôi
-          </h2>
+          </h6>
           <p className="mt-4 text-gray-500">
             Lưới Đức Hải tự hào là nhà sản xuất lưới nông nghiệp hàng đầu tại
             thị trường Việt Nam.
           </p>
 
-          <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+          <dl className="mt-4 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
             {features.map((feature) => (
               <div key={feature.name} className="border-t border-gray-200 pt-4">
                 <dt className="font-medium text-gray-900">{feature.name}</dt>

@@ -38,7 +38,6 @@ module.exports = plugin(function ({ addBase, addUtilities, theme }) {
       fontWeight: theme('fontWeight.bold'),
       fontSize: '16px',
       lineHeight: '1.6',
-      letterSpacing: '1.6px',
     },
     '.body-20-semibold': {
       fontWeight: theme('fontWeight.semibold'),

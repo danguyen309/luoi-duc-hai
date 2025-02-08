@@ -1,20 +1,29 @@
 import { Card, CardBody, Image } from '@heroui/react';
+import { IPost } from '../../interfaces/post';
+import Link from 'next/link';
 
-const PostItem = () => {
+type PostItemProps = {
+  post: IPost;
+};
+
+const PostItem = (props: PostItemProps) => {
+  const { post } = props;
   return (
-    <Card isPressable>
+    <Card isPressable as={Link} href={`chia-se/${post.slug}`}>
       <CardBody className="overflow-visible">
         <div className="grid grid-cols-12 gap-x-4">
           <div className="col-span-4">
             <Image
-              alt="Card background"
+              alt={post.title}
               className="object-cover rounded-xl"
-              src="https://heroui.com/images/hero-card-complete.jpeg"
+              src={process.env.API_ROOT + post.cover?.url}
+              width={80}
+              height={80}
             />
           </div>
           <div className="col-span-8">
-            <h4 className=" font-bold text-large">Frontend Radio</h4>
-            <p>Description</p>
+            <h4 className=" font-bold text-large">{post.title}</h4>
+            <p>{post.content?.slice(256)}</p>
           </div>
         </div>
       </CardBody>

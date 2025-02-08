@@ -1,0 +1,10 @@
+{
+    "name": "strapi",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/strapi",
+    "projectType": "application",
+    "tags": [],
+    "// targets": "to see all targets run: nx show project front-end --web",
+    "targets": {}
+  }
+  

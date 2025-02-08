@@ -1,14 +1,15 @@
+import { Image, Property } from './shared';
+
 export interface IProduct {
   id: number;
   name: string;
-  description: string;
+  desc: string;
   slug: string;
   price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  brand: string;
-  category: string;
-  thumbnail: string;
-  images: string[];
+  createdAt: number;
+  updatedAt: number;
+  isFeatured: number;
+  cover: Image;
+  thumbnails?: Image[];
+  properties: Property[];
 }

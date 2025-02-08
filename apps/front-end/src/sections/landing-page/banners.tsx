@@ -21,10 +21,13 @@ const banners = [
 const Banners = () => {
   const [emblaRef] = useEmblaCarousel();
   return (
-    <div className="embla mt-6" ref={emblaRef}>
-      <div className="embla__container">
+    <div className="overflow-hidden mt-6" ref={emblaRef}>
+      <div className="flex">
         {banners.map((banner) => (
-          <div key={banner.id} className="embla__slide group relative">
+          <div
+            key={banner.id}
+            className="group relative grow-0 shrink-0 basis-full"
+          >
             <Image
               alt={`Banner ${banner.id}`}
               src={banner.src}
