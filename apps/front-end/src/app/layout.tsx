@@ -1,4 +1,8 @@
+import Footer from '../components/footer';
+import Header from '../components/header';
 import './global.css';
+
+import { Providers } from './providers';
 
 export const metadata = {
   title: 'Welcome to front-end',
@@ -12,7 +16,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
+      </body>
     </html>
   );
 }

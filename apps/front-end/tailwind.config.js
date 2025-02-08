@@ -1,5 +1,7 @@
 const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');
 const { join } = require('path');
+const { heroui } = require('@heroui/react');
+const plugin = require('./tailwind.plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -9,9 +11,11 @@ module.exports = {
       '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
     ),
     ...createGlobPatternsForDependencies(__dirname),
+    '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {},
   },
-  plugins: [],
+  darkMode: 'class',
+  plugins: [heroui(), plugin, require('@tailwindcss/typography')],
 };
