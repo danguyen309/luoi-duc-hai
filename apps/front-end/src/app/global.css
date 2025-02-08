@@ -66,14 +66,6 @@ pre {
   h2 {
     @apply text-xl;
   }
-  ul {
-    padding-left: 2rem;
-    list-style: disc;
-  }
-  ol {
-    padding-left: 2rem;
-    list-style: decimal;
-  }
 }
 
 .embla {

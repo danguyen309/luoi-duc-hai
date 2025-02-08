@@ -5,7 +5,6 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link,
   Button,
   DropdownItem,
   DropdownTrigger,
@@ -15,15 +14,14 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
 } from '@heroui/react';
-import { useState } from 'react';
 import Logo from './logo';
 import { menuItems } from '../config/nav-config';
 import { usePathname } from 'next/navigation';
+import Iconify from './iconify';
+import Link from 'next/link';
 
 export default function Header() {
   const pathname = usePathname();
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <Navbar isBordered>
@@ -35,67 +33,45 @@ export default function Header() {
         {menuItems?.map((item) => {
           if (item.children && item.children.length)
             return (
-              <Dropdown key={item.href}>
-                <NavbarItem isActive>
+              <Dropdown key={item.key}>
+                <NavbarItem isActive={pathname === item.href}>
                   <DropdownTrigger>
                     <Button
+                      className="bg-transparent p-0"
                       disableRipple
-                      className="p-0 bg-transparent data-[hover=true]:bg-transparent"
-                      radius="sm"
-                      variant="light"
+                      disableAnimation
+                      endContent={<Iconify iconName="heroicons:chevron-down" />}
                     >
                       {item.label}
                     </Button>
                   </DropdownTrigger>
                 </NavbarItem>
-                <DropdownMenu
-                  aria-label={item.label}
-                  className="w-[256px]"
-                  itemClasses={{
-                    base: 'gap-4',
-                  }}
-                >
-                  {item.children?.map((child) => {
-                    return (
-                      <DropdownItem key={child.label} href={child.href}>
-                        {child.label}
-                      </DropdownItem>
-                    );
-                  })}
+                <DropdownMenu aria-label={item.key} items={item.children}>
+                  {(child) => (
+                    <DropdownItem key={child.key} href={child.href}>
+                      {child.label}
+                    </DropdownItem>
+                  )}
                 </DropdownMenu>
               </Dropdown>
             );
 
           return (
             <NavbarItem key={item.href} isActive={pathname === item.href}>
-              <Link color="foreground" href={item.href}>
+              <Button as={Link} className="bg-transparent p-0" href={item.href}>
                 {item.label}
-              </Link>
+              </Button>
             </NavbarItem>
           );
         })}
       </NavbarContent>
 
       {/* Mobile */}
-      <NavbarMenuToggle
-        aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-        className="sm:hidden"
-      />
+      <NavbarMenuToggle className="sm:hidden" />
       <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              className="w-full"
-              color={
-                index === 2
-                  ? 'primary'
-                  : index === menuItems.length - 1
-                  ? 'danger'
-                  : 'foreground'
-              }
-              href="#"
-              size="lg"
-            >
+        {menuItems.map((item) => (
+          <NavbarMenuItem key={item.key}>
+            <Link className="w-full" href={item.href}>
               {item.label}
             </Link>
           </NavbarMenuItem>
